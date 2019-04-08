@@ -60,14 +60,14 @@ public class Client extends JFrame{
             String s2 = patrimonioDesejado.getText();
             String s3 = tempo.getText();
 
-            double soma = new SocketRobertinaC().soma(
+            double valor = new SocketRobertinaC().calcula(
       		              Double.parseDouble(s1),
                     		Double.parseDouble(s2),
                     		Double.parseDouble(s3));
 
             DecimalFormat df = new DecimalFormat("###.#####");
             indice++;
-            area.append(indice+") Soma (" + s1 + " + " + s2 + "): " + df.format(soma));
+            area.setText(df.format(valor));
 
           } catch (NumberFormatException e1) {
               e1.printStackTrace();
