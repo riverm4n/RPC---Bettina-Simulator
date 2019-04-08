@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class SocketRobertina(){
+public class SocketRobertina{
   private final Socket socket;
 
   public SocketRobertina(Socket socket){
@@ -16,12 +16,12 @@ public class SocketRobertina(){
     DataInputStream in   = new DataInputStream(socket.getInputStream());
     DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-    double investimentoInicial = readDouble();
-    double patrimonioDesejado  = readDouble();
-    double tempo               = readDouble();
+    double investimentoInicial = in.readDouble();
+    double patrimonioDesejado  = in.readDouble();
+    double tempo               = in.readDouble();
 
     double valor = patrimonioDesejado / investimentoInicial;
-    double juros = (Math.pow(investimentos, (1/tempo))) - 1;
+    double juros = (Math.pow(valor, (1/tempo))) - 1;
 
     System.out.println("Para obter o Patrimônio de R$" + patrimonioDesejado + " em " + tempo + " meses, a taxa de juros será de R$" + juros);
 
