@@ -1,4 +1,4 @@
-Trabalho Prático I de Sistemas Distribuídos.
+Trabalho Prático I de Sistemas Distribuídos
 
 Implementação em Java do RPC (Remote Procedure Call)
 
