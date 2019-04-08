@@ -21,6 +21,8 @@ public class Client extends JFrame{
     	final JLabel lbQ0 = new JLabel("Investimento Inicial - Q0");
     	final JLabel lbQf = new JLabel("Patrimônio Desejado - Qf");
     	final JLabel lbT = new JLabel("Tempo - t");
+    	final ImageIcon icon = new ImageIcon("/home/pedro/eclipse-workspace/Robertina_RPC/src/socket/clienttcp/icon.jpg");
+    	final JLabel betina = new JLabel(icon);
         final JTextField investimentoInicial = new JTextField(7);
         final JTextField patrimonioDesejado = new JTextField(7);
         final JTextField tempo =  new JTextField(7);
@@ -36,6 +38,7 @@ public class Client extends JFrame{
         lbQf.setBounds(50,80,200,20);
         lbT.setBounds(50,120,200,20);
         ok.setBounds(50,160,100,20);
+        betina.setBounds(400, 40, 480, 300);
         
         investimentoInicial.setBounds(250,40,100,20);
         patrimonioDesejado.setBounds(250,80,100,20);
@@ -48,6 +51,7 @@ public class Client extends JFrame{
         panel.add(patrimonioDesejado);
         panel.add(lbT);
         panel.add(tempo);
+        panel.add(betina);
         
         panel.add(ok);
         panel.add(area);
@@ -86,7 +90,7 @@ public class Client extends JFrame{
 
     public static void main(String[] args) {
         Client frame  = new Client();
-        frame.setSize(400,250);
+        frame.setSize(1024,600);
         frame.setVisible(true);
 
         frame.addWindowListener(new WindowAdapter() {
