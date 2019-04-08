@@ -32,7 +32,7 @@ public class Client extends JFrame{
       lbQf.setBounds(50,80,200,20);
       lbT.setBounds(50,120,200,20);
       ok.setBounds(50,160,100,20);
-      betina.setBounds(400, 40, 480, 300);
+      betina.setBounds(400, 0, 1280, 720); //400, 40, 480, 300
 
       investimentoInicial.setBounds(250,40,100,20);
       patrimonioDesejado.setBounds(250,80,100,20);
@@ -60,7 +60,7 @@ public class Client extends JFrame{
             String s2 = patrimonioDesejado.getText();
             String s3 = tempo.getText();
 
-            double valor = new SocketRobertinaC().calcula(
+            double valor = new SocketRobertinaC().soma(
       		              Double.parseDouble(s1),
                     		Double.parseDouble(s2),
                     		Double.parseDouble(s3));
@@ -80,7 +80,8 @@ public class Client extends JFrame{
 
 public static void main(String[] args) {
     Client frame  = new Client();
-    frame.setSize(1024,600);
+    frame.setTitle("Bettina Simulator");
+    frame.setSize(1920,1080);
     frame.setVisible(true);
 
     frame.addWindowListener(new WindowAdapter() {
