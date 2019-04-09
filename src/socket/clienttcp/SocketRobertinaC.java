@@ -6,24 +6,36 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class SocketRobertinaC {
-	public double soma(double investimentoInicial,
-						double patrimonioDesejado,
-						double tempo) throws IOException {
-
+	public double operacao(double investimentoInicial, double patrimonioDesejado,double tempo) throws IOException {
+		//Objeto da classe socket, identificado pelo par(IP, porta). Por padrão utilizamos o localhost, porém, o cliente pode fazer as alterações necessárias.
 		Socket socket = new Socket("localhost", 2019);
-        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-        DataInputStream in = new DataInputStream(socket.getInputStream());
 
-        out.writeDouble(investimentoInicial);
-        out.writeDouble(patrimonioDesejado);
-        out.writeDouble(tempo);
+		/*
+		A Classe DataInputStream é de fundamental importância para ambientes distribuídos, uma vez que permite
+		que uma aplicação leia tipos primitivos de dados do Java de algum outro stream de uma forma que independe
+		da máquina. Uma aplicação utiliza um data output stream para escrever dados que podem mais tarde ser lidos
+		por um data input stream.
+		*/
+    DataInputStream in = new DataInputStream(socket.getInputStream());
+		DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-        double soma = in.readDouble();
+		/*
+		Abaixo o DataOutputStream faz o envio para a aplicação Servidor faz a conversão da entrada para um Double,
+		com a sua quantidade de bits específica. O OutputStream escreve os bytes que representam um valor em Double,
+		e não a versão legível daquele número.
+		*/
+    out.writeDouble(investimentoInicial);
+    out.writeDouble(patrimonioDesejado);
+    out.writeDouble(tempo);
 
-        in.close();
-        out.close();
-        socket.close();
+		//Variável que armazena o valor retornado ao Client pelo procedimento receive.
+    double valor = in.readDouble();
 
-        return soma;
+		//Encerramento do Stream e consequentemente da comunicação:
+    in.close();
+    out.close();
+    socket.close();
+
+    return valor;
     }
 }

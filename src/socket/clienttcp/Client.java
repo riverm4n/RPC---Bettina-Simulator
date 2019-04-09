@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class Client extends JFrame{
+    //Classe responsável pela aplicação cliente, preocupada em instanciar a Interface Gráfica e permitir as suas interações com o usuário.
     public Client(){
     	Container panel = getContentPane();
     	final JLabel lbQ0 = new JLabel("Investimento Inicial - Q0");
@@ -17,22 +18,19 @@ public class Client extends JFrame{
     	final JLabel lbT = new JLabel("Tempo - t");
     	final ImageIcon icon = new ImageIcon("src/socket/clienttcp/icon.jpg");
     	final JLabel betina = new JLabel(icon);
-      final JTextField investimentoInicial = new JTextField(7);
-      final JTextField patrimonioDesejado = new JTextField(7);
-      final JTextField tempo =  new JTextField(7);
-      JButton ok = new JButton("REVELAR");
-      final JTextArea area = new JTextArea(50, 50);
+    	final JTextField investimentoInicial = new JTextField(7);
+    	final JTextField patrimonioDesejado = new JTextField(7);
+    	final JTextField tempo =  new JTextField(7);
+    	JButton ok = new JButton("REVELAR");
+    	final JTextArea area = new JTextArea(50, 50);
 
-      ///JPanel panel = new JPanel();
-      //panel.setLayout(new GridLayout(15, 2, 2, 2));
-      //panel.setLayout(new FlowLayout());
-      setLayout(null);
+    	setLayout(null);
 
-      lbQ0.setBounds(50,40,200,20);
-      lbQf.setBounds(50,80,200,20);
-      lbT.setBounds(50,120,200,20);
-      ok.setBounds(50,160,100,20);
-      betina.setBounds(400, 0, 1280, 720); //400, 40, 480, 300
+    	lbQ0.setBounds(50,40,200,20);
+    	lbQf.setBounds(50,80,200,20);
+    	lbT.setBounds(50,120,200,20);
+    	ok.setBounds(50,160,100,20);
+    	betina.setBounds(400, 0, 1280, 720); //400, 40, 480, 300
 
       investimentoInicial.setBounds(250,40,100,20);
       patrimonioDesejado.setBounds(250,80,100,20);
@@ -60,7 +58,8 @@ public class Client extends JFrame{
             String s2 = patrimonioDesejado.getText();
             String s3 = tempo.getText();
 
-            double valor = new SocketRobertinaC().soma(
+            //Ao contato com o clique no botão "REVELAR", é feita a solicitação da execução do procedimento pelo Client e a comunicação tenta ser estabelecida.
+            double valor = new SocketRobertinaC().operacao(
       		              Double.parseDouble(s1),
                     		Double.parseDouble(s2),
                     		Double.parseDouble(s3));
@@ -75,13 +74,13 @@ public class Client extends JFrame{
               e1.printStackTrace();
             }
           }
-        });
-      }
+      });
+    }
 
 public static void main(String[] args) {
     Client frame  = new Client();
     frame.setTitle("Bettina Simulator");
-    frame.setSize(1920,1080);
+    frame.setSize(1620,720);
     frame.setVisible(true);
 
     frame.addWindowListener(new WindowAdapter() {
