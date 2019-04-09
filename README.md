@@ -6,7 +6,9 @@ Implementação em Java do RPC (Remote Procedure Call)
 patrimônio de 1 milhão e 42 mil reais acumulado Q_f. Em seus investimentos, ela foi capaz de transformar o valor
 inicial Q_0 de R$ 1.500,00 nesse montante. Levando em consideração uma aplicação financeira com valor inicial
 Q_0 durante um período de t anos, a taxa de juros necessária i para que o investimento inicial alcance o valor
-final Qf, é dada pela seguinte fórmula: <!-- Adicionar Imagem mais tarde, no Windows -->
+final Qf, é dada pela seguinte fórmula:
+
+<img src="https://i.ibb.co/GdytTbD/Captura-de-tela-de-2019-04-08-22-15-35.png">
 
 Escreva um procedimento remoto que tenha como entrada o valor
 
